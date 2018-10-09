@@ -4,7 +4,7 @@ public class starSystem
 	public static void main(String[] args)
 	{
 		//initilise window and RNG
-		SolarSystem system =new SolarSystem(800, 800);
+		SolarSystem system =new SolarSystem(850, 850);
 		Random r = new Random();
 
 		//draw sun and planets
@@ -20,7 +20,7 @@ public class starSystem
 		
 		//draw asteroid belt
 		for (int i=0;i<200;i++)
-			system.drawSolarObject(r.nextInt(50)+320,r.nextInt(360),r.nextInt(6),"WHITE");
+			system.drawSolarObject(r.nextInt(50)+350,r.nextInt(361),r.nextInt(6),"WHITE");
 		
 		//finalise
 		system.finishedDrawing();
