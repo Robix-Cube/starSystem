@@ -1,4 +1,4 @@
 public class starSystem()
 {
-
+	private String Star="The Sun";
 }
