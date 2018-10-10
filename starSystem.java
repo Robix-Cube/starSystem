@@ -1,13 +1,13 @@
-import java.util.Random;
 public class starSystem
 {
 	public static void main(String[] args)
 	{
 		//initilise window, RNG and speed values
 		SolarSystem system =new SolarSystem(850, 850);
-		Random r = new Random(1);
 		int planetSpeed=1;
 		int moonSpeed=1;
+		
+		asteroid[] AA=new asteroid[8];
 		
 		while(true)
 		{
@@ -23,11 +23,25 @@ public class starSystem
 		system.drawSolarObjectAbout(50,345+planetSpeed,2,"WHITE",285,200+moonSpeed);
 		
 		//draw asteroid belt
-		for (int i=0;i<10;i++)
-			system.drawSolarObject(r.nextInt(50)+350,r.nextInt(360),r.nextInt(6),"WHITE");
+		try
+		{
+			for (int i=0;i<8;i++)
+				system.drawSolarObject(AA[i].getDistance(),AA[i].getAngle(),AA[i].getDiameter(),"WHITE");
+		}catch(NullPointerException e)
+		{
+			System.out.println("Caught");
+		}
 		
 		//finalise
 		system.finishedDrawing();
+		try
+		{
+			for (int j=0;j<8;j++)
+				AA[j].moveAss();
+		}catch(NullPointerException e)
+		{
+			System.out.println("Caught");
+		}
 		planetSpeed+=1;
 		moonSpeed+=1;
 		}
