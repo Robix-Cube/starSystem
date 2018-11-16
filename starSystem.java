@@ -6,13 +6,19 @@ public class starSystem
 		SolarSystem system =new SolarSystem(850, 850);
 		int planetSpeed=1;
 		int moonSpeed=1;
+		int noOfAsteroids=500;
 		
-		asteroid[] AA=new asteroid[8];
+		//initialise asteroid array and fill it
+		asteroid[] AA=new asteroid[noOfAsteroids];
+		for (int i=0;i<noOfAsteroids;i++){
+			AA[i]=new asteroid();
+		}
+
 		
 		while(true)
 		{
 		//draw sun and planets
-		system.drawSolarObject(0,135,50,"YELLOW");
+		system.drawSolarObject(0,0,50,"YELLOW");
 		system.drawSolarObject(100,45+planetSpeed,10,"GRAY");
 		system.drawSolarObject(130,90+planetSpeed,18,"PINK");
 		system.drawSolarObject(230,0+planetSpeed,35,"BLUE");
@@ -25,7 +31,7 @@ public class starSystem
 		//draw asteroid belt
 		try
 		{
-			for (int i=0;i<8;i++)
+			for (int i=0;i<noOfAsteroids;i++)
 				system.drawSolarObject(AA[i].getDistance(),AA[i].getAngle(),AA[i].getDiameter(),"WHITE");
 		}catch(NullPointerException e)
 		{
@@ -36,7 +42,7 @@ public class starSystem
 		system.finishedDrawing();
 		try
 		{
-			for (int j=0;j<8;j++)
+			for (int j=0;j<noOfAsteroids;j++)
 				AA[j].moveAss();
 		}catch(NullPointerException e)
 		{
